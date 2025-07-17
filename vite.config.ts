@@ -4,8 +4,13 @@ import { VitePWA } from 'vite-plugin-pwa'
 
 export default defineConfig({
   base: '/What-s-Eat-Today/',
+  build: {
+    outDir: 'docs',
+  },
   plugins: [
+    
     react(),
+    
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg', 'favicon.ico', 'robots.txt', 'apple-touch-icon.png'],
