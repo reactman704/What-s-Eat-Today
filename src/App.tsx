@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Wheel } from 'react-custom-roulette'
+import arrowImg from './assets/arrow.png';
+import Logo from './assets/Logo.png';
+import './App.css'
 
 interface MenuItem {
   id: number
@@ -66,7 +69,7 @@ function App() {
   const wheelData =
     rouletteFoods.length > 0
       ? rouletteFoods.map((food) => ({ option: food.name_kr }))
-      : [{ option: '음식을 선택하세요' }] // 빈 배열일 때 기본값
+      : [{ option: '카테고리를 선택하세요' }] // 빈 배열일 때 기본값
 
   // 룰렛 돌리기
   const spinRoulette = () => {
@@ -83,6 +86,9 @@ function App() {
 
   return (
     <>
+      <div id="header" className='w-full flex justify-center p-5'>
+        <img src={Logo} alt="logo" />
+      </div>
       {/* 카테고리 선택 버튼 */}
       <div className="flex gap-4 p-6 flex-wrap justify-center">
         {foodCategory.map((cate) => (
@@ -94,14 +100,11 @@ function App() {
               borderRadius: '8px',
               border: '2px solid #666',
               backgroundColor: selectedCategories.includes(cate)
-                ? '#4F46E5'
+                ? '#FF6B35'
                 : 'white',
               color: selectedCategories.includes(cate) ? 'white' : '#333',
               cursor: 'pointer',
               transition: 'background-color 0.3s, color 0.3s',
-              boxShadow: selectedCategories.includes(cate)
-                ? '0 0 10px #4F46E5'
-                : 'none',
             }}
           >
             {cate}
@@ -119,14 +122,14 @@ function App() {
             textAlign: 'center',
             fontSize: 24,
             fontWeight: 'bold',
-            color: '#4F46E5',
+            color: '#000',
           }}
         >
-          🎉 당첨된 음식: {selectedFood.name_kr} 🎉
+        당첨된 음식: {selectedFood.name_kr}
         </div>
       )}
 
-      <div className='flex justify-center items-center py-[6rem]'>
+      <div className='flex justify-center items-center py-[6rem] relative overflow-hidden'>
         {/* 룰렛 & 12시 핀 */}
         <div
           style={{ transform: 'rotate(316deg)' }}
@@ -150,16 +153,23 @@ function App() {
             radiusLineWidth={2}
             fontSize={16}
             textDistance={60}
+            pointerProps={{
+              src: '', // 포인터 이미지 URL
+              style: { display: 'none' }, // 기본 포인터 숨김
+            }}
           />
 
 
 
         </div>
+        <div>
+          <img src={arrowImg} alt="arrow" className='absolute top-[45px] w-[60px] left-[50%] translate-x-[-50%]'/>
+        </div>
       </div>
 
 
       {/* 룰렛 돌리기 버튼 */}
-      <div style={{ textAlign: 'center', marginBottom: 40 }}>
+      <div className='text-center pb-10'>
         <button
           onClick={spinRoulette}
           disabled={mustSpin}
@@ -167,11 +177,10 @@ function App() {
             padding: '12px 24px',
             fontSize: 18,
             borderRadius: '8px',
-            backgroundColor: mustSpin ? '#a0a0a0' : '#4F46E5',
+            backgroundColor: mustSpin ? '#FF6B35' : '#FF6B35',
             color: 'white',
             border: 'none',
             cursor: mustSpin ? 'not-allowed' : 'pointer',
-            boxShadow: '0 0 10px #4F46E5',
             transition: 'background-color 0.3s',
           }}
         >
