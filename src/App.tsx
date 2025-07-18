@@ -28,7 +28,7 @@ function App() {
     async function FetchData() {
       try {
         const url =
-          'https://gist.githubusercontent.com/reactman704/2eb9c93bc940a47bae76eecb9834e347/raw/07afe9705a88cd9e59dbf6aced7c1bb21291b394/WhatsEatToday.json'
+          'https://gist.githubusercontent.com/reactman704/2eb9c93bc940a47bae76eecb9834e347/raw/db4fb60e18be88fbcf14974c64dc71cb7a02a03d/WhatsEatToday.json'
 
         const response = await axios.get<MenuItem[]>(url)
 
