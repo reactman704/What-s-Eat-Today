@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Wheel } from 'react-custom-roulette'
-import arrowImg from './assets/arrow.png';
 import Logo from './assets/Logo.png';
 import './App.css'
 
