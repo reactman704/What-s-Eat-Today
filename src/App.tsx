@@ -112,8 +112,6 @@ function App() {
         ))}
       </div>
 
-      
-
       {/* 당첨 결과 보여주기 */}
       {selectedFood && (
         <div
@@ -154,16 +152,16 @@ function App() {
             fontSize={16}
             textDistance={60}
             pointerProps={{
-              src: '', // 포인터 이미지 URL
-              style: { display: 'none' }, // 기본 포인터 숨김
+              src: './src/assets/arrow.png',
+              // 포인터 이미지 URL
+              style: { transform: 'rotate(-316deg) translateY(-5px)' },
+              // 기본 포인터 숨김
             }}
           />
 
-
-
         </div>
         <div>
-          <img src={arrowImg} alt="arrow" className='absolute top-[45px] w-[60px] left-[50%] translate-x-[-50%]'/>
+          {/* <img src={arrowImg} alt="arrow" className='absolute top-[45px] w-[60px] left-[51.3%] translate-x-[-50%]'/> */}
         </div>
       </div>
 
