@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Wheel } from 'react-custom-roulette'
 import Logo from './assets/Logo.png';
+import arrow from './assets/arrow.png';
 import './App.css'
 
 interface MenuItem {
@@ -151,11 +152,12 @@ function App() {
             fontSize={16}
             textDistance={60}
             pointerProps={{
-              src: './src/assets/arrow.png',
+              src: arrow,
               // 포인터 이미지 URL
               style: { transform: 'rotate(-316deg) translateY(-5px)' },
               // 기본 포인터 숨김
             }}
+
           />
 
         </div>
